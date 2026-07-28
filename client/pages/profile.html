@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Fabulis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">FABULIS</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="explore.html">Explore</a>
+        <a href="ai-discovery.html">AI Discovery</a>
+        <a href="#" id="logoutBtn" class="btn btn-secondary">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-header">
+    <div class="container">
+      <p class="eyebrow">Profile</p>
+      <h1 id="profileUsername">Username</h1>
+      <p id="profileEmail" class="profile-email"></p>
+    </div>
+  </section>
+
+  <section class="dashboard-section">
+    <div class="container">
+      <div id="watchlistStats"></div>
+    </div>
+  </section>
+
+  <section class="dashboard-section">
+    <div class="container profile-grid">
+
+      <div class="card profile-card">
+        <h3>Favorite Genres</h3>
+        <p class="profile-card-sub">Used to personalize your AI recommendations.</p>
+        <div id="genreTags" class="tag-list"></div>
+        <form id="genreForm" class="tag-form">
+          <input type="text" id="genreInput" placeholder="Add a genre..." />
+          <button type="submit" class="btn btn-secondary">Add</button>
+        </form>
+      </div>
+
+      <div class="card profile-card">
+        <h3>Favorite Media Types</h3>
+        <p class="profile-card-sub">Movies, anime, TV — whatever you watch most.</p>
+        <div id="mediaTypeTags" class="tag-list"></div>
+        <form id="mediaTypeForm" class="tag-form">
+          <input type="text" id="mediaTypeInput" placeholder="e.g. anime" />
+          <button type="submit" class="btn btn-secondary">Add</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="dashboard-section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Your Full Watchlist</h2>
+      </div>
+      <div id="fullWatchlist" class="media-grid">
+        <p class="empty-state">Loading...</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/media-card.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>
