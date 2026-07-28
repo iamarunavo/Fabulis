@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Discovery - Fabulis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="ai-page">
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">FABULIS</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="explore.html">Explore</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" id="logoutBtn" class="btn btn-secondary">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ai-header">
+    <div class="container">
+      <p class="eyebrow">AI Discovery</p>
+      <h1>Ask Fabulis</h1>
+      <p class="ai-sub">Describe a mood, a favorite title, or exactly what you're in the mood for.</p>
+    </div>
+  </section>
+
+  <section class="ai-chat-section">
+    <div class="container">
+      <button type="button" id="historyToggle" class="btn btn-secondary history-toggle">View Past Recommendations</button>
+      <div id="historyPanel" class="history-panel hidden"></div>
+
+      <div id="chatWindow" class="chat-window">
+        <div class="chat-message chat-message-ai">
+          <p>Hi! Tell me what you're in the mood for — a genre, a similar title, or just how you're feeling.</p>
+        </div>
+      </div>
+
+      <form id="chatForm" class="chat-form">
+        <input type="text" id="chatInput" placeholder="e.g. something like Attack on Titan but with more character development" required />
+        <button type="submit" class="btn btn-primary" id="chatSubmitBtn">Ask</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/ai-discovery.js"></script>
+</body>
+</html>
