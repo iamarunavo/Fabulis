@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabulis - Discover stories beyond imagination</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">FABULIS.AI</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="pages/explore.html">Explore</a>
+        <a href="pages/login.html">Login</a>
+        <a href="pages/register.html" class="btn btn-primary">Create Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-wall" id="heroWall" aria-hidden="true"></div>
+    <div class="container hero-flex">
+      <div class="hero-inner">
+        <p class="eyebrow">AI-powered recommendations</p>
+        <h1>Discover stories<br />beyond imagination</h1>
+        <p class="hero-sub">
+          Personalized movie, anime, and series recommendations,
+          powered by AI that actually gets your taste.
+        </p>
+        <div class="hero-actions">
+          <a href="pages/explore.html" class="btn btn-primary">Explore now</a>
+          <a href="pages/register.html" class="btn btn-secondary">Create account</a>
+        </div>
+      </div>
+
+      <div class="hero-cards" aria-hidden="true">
+        <div class="hero-poster-card hero-poster-tv" data-slot="tv"></div>
+        <div class="hero-poster-card hero-poster-anime" data-slot="anime"></div>
+        <div class="hero-poster-card hero-poster-movie" data-slot="movie"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How Fabulis finds your next favorite</h2>
+      <div class="steps">
+        <div class="step">
+          <p class="eyebrow data">01</p>
+          <h3>Tell it your mood</h3>
+          <p>Ask for something specific, or just describe how you're feeling.</p>
+        </div>
+        <div class="step">
+          <p class="eyebrow data">02</p>
+          <h3>AI reasons it out</h3>
+          <p>Fabulis weighs your taste, history, and request together.</p>
+        </div>
+        <div class="step">
+          <p class="eyebrow data">03</p>
+          <h3>Get real matches</h3>
+          <p>Cross-referenced against real movie and anime databases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Fabulis &mdash; Discover stories beyond imagination</p>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/hero-cards.js"></script>
+</body>
+</html>
