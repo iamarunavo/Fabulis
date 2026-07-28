@@ -6,7 +6,7 @@ AI-powered entertainment discovery for movies, TV shows, and anime all in one pl
 
 ## Demo
 
-**Live Link:** [https://fabulis.onrender.com/index.html](https://fabulis.onrender.com/index.html)
+**Live Link:** [https://fabulis.onrender.com/](https://fabulis.onrender.com)
 
 
 **Demo account**
