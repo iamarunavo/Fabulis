@@ -17,6 +17,15 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
+    // Reject non-string values before they ever reach a Mongoose query
+    if (
+      typeof username !== "string" ||
+      typeof email !== "string" ||
+      typeof password !== "string"
+    ) {
+      return res.status(400).json({ message: "Invalid request" });
+    }
+
     // Check if username or email is already taken
     const existingUser = await User.findOne({
       $or: [{ email }, { username }],
@@ -55,6 +64,11 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Email and password required" });
     }
 
+    // Reject non-string values before they ever reach a Mongoose query
+    if (typeof email !== "string" || typeof password !== "string") {
+      return res.status(400).json({ message: "Invalid request" });
+    }
+
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });
@@ -81,7 +95,35 @@ export const login = async (req, res) => {
   }
 };
 
-// GET /api/auth/profile (protected route - req.user set by auth middleware)
+// PUT /api/auth/profile (protected route - updates favorite genres/media types)
+export const updateProfile = async (req, res) => {
+  try {
+    const { favoriteGenres, favoriteMediaTypes } = req.body;
+
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (favoriteGenres !== undefined) user.favoriteGenres = favoriteGenres;
+    if (favoriteMediaTypes !== undefined) user.favoriteMediaTypes = favoriteMediaTypes;
+
+    await user.save();
+
+    res.status(200).json({
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        favoriteGenres: user.favoriteGenres,
+        favoriteMediaTypes: user.favoriteMediaTypes,
+      },
+    });
+  } catch (err) {
+    console.error("Update profile error:", err);
+    res.status(500).json({ message: "Server error updating profile" });
+  }
+};
 export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
