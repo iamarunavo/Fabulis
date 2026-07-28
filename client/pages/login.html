@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Fabulis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">FABULIS</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="register.html">Create Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="auth-section">
+    <div class="container auth-container">
+      <div class="auth-card card">
+        <p class="eyebrow">Welcome back</p>
+        <h2>Log in to Fabulis</h2>
+
+        <form id="loginForm" class="auth-form">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+
+          <p id="errorMessage" class="form-error" hidden></p>
+
+          <button type="submit" class="btn btn-primary" id="submitBtn">Login</button>
+        </form>
+
+        <p class="auth-switch">
+          Don't have an account? <a href="register.html">Create one</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>
