@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore - Fabulis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">FABULIS</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="ai-discovery.html">AI Discovery</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" id="logoutBtn" class="btn btn-secondary">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="explore-header">
+    <div class="container">
+      <p class="eyebrow">Explore</p>
+      <h1>Find your next watch</h1>
+
+      <div class="explore-controls">
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-type="movie">Movies</button>
+          <button class="filter-tab" data-type="tv">TV Shows</button>
+          <button class="filter-tab" data-type="anime">Anime</button>
+        </div>
+
+        <form id="searchForm" class="search-form">
+          <input type="text" id="searchInput" placeholder="Search titles..." />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="dashboard-section">
+    <div class="container">
+      <div id="exploreGrid" class="media-grid">
+        <p class="empty-state">Loading...</p>
+      </div>
+      <div id="scrollSentinel" class="scroll-sentinel"></div>
+      <p id="loadingMore" class="loading-more" hidden>Loading more...</p>
+    </div>
+  </section>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/media-card.js"></script>
+  <script src="../js/explore.js"></script>
+</body>
+</html>
