@@ -228,11 +228,10 @@ Implemented:
 - **NoSQL injection guards** request fields used in queries are type-checked before reaching Mongoose, rejecting operator-object payloads such as `{"email": {"$gt": ""}}`.
 - **API keys** live only in `.env` on the server and are never sent to the browser.
 
-Known gaps, documented honestly:
+Current gaps:
 
 - The JWT is stored in `localStorage`, not an `httpOnly` cookie, meaning any XSS would expose the token. Migrating to a cookie is the main hardening step remaining.
 - CORS is open unless `CLIENT_ORIGIN` is set to moot for the bundled single-origin deployment, but relevant if the frontend is ever hosted separately.
-- No server-side password strength requirements.
 - No automated test suite.
 
 ---
