@@ -56,13 +56,49 @@ Recommendations also suggest where to stream each title, and every conversation 
 
 ---
 
+## Running the server
+
+**Prerequisites:** Node.js 18+, a MongoDB database (Atlas or local), a [TMDB API key](https://www.themoviedb.org/settings/api), and a [Google Gemini API key](https://aistudio.google.com/apikey).
+
+**1. Install dependencies**
+
+```bash
+cd server
+npm install
+```
+
+**2. Create `server/.env`**
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=any_long_random_string
+TMDB_API_KEY=your_tmdb_key
+GEMINI_API_KEY=your_gemini_key
+```
+
+`PORT` is optional and defaults to `5000`. `.env` is gitignored and must never be committed.
+
+**3. Start the server**
+
+```bash
+npm run dev     # nodemon, restarts on change
+# or
+npm start       # plain node
+```
+
+You should see `MongoDB connected` and `Server running on port 5000`.
+
+**4. Open the app**
+
+Visit <http://localhost:5000>.
+
+Express serves both the API and the frontend from the same origin, so there's no second server to start and no CORS setup. A health check is available at `/api/health`.
+
+
 ## Architecture
 
-Fabulis is an **Express REST API** that serves its frontend as static assets, allowing the entire application to run as a **single service under one origin**. This same-origin architecture eliminates CORS issues in production and allows the frontend to use a simple relative `/api` base path.
-
-The backend also acts as a **proxy** for TMDB, AniList, and Gemini, keeping API keys secure and normalizing responses into a consistent format (`{ id, title, poster, rating, ... }`). This lets the frontend render movies, TV shows, and anime using a single reusable card component regardless of the data source.
-
-The frontend is intentionally **build-step free**, using plain HTML, CSS, and JavaScript. Shared scripts are included with `<script>` tags, and dynamic content uses **event delegation** so newly inserted cards work without rebinding event listeners.
+**The backend is a proxy, not just a database layer.** All three external services (TMDB, AniList, Gemini) are called server-side, so **no API key ever reaches the browser**.
+It also lets each response be reshaped before it hits the client, which matters, because the three sources disagree about almost everything. TMDB returns `title` for movies but `name` for TV; AniList is GraphQL and returns scores on a 0–100 scale with HTML embedded in descriptions. Each service module normalises its responses into one consistent shape (`{ id, title, poster, rating, ... }`), so the frontend renders every result through a single shared card component regardless of source.
 
 ---
 
